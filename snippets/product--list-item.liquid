@@ -1,0 +1,28 @@
+<a
+  class="product--list-item"
+  href="{{ product_item.url }}"
+  aria-label="{{ product_item.title }}"
+  data-product-item
+>
+  <div class="product--list-item--wrapper">
+    <div class="product--list-item--image">
+      {%- liquid
+        if product_item.featured_media.preview_image
+          render "image", image: product_item.featured_media.preview_image, size: '60px', mobile_size: '60px'
+        else
+          render "placeholder", type: 'product', aspect_ratio: 1, placeholder_index: 1
+        endif
+      -%}
+    </div>
+
+    <div class="product--list-item--info">
+      <div data-item="paragraph">
+        {{- product_item.title -}}
+      </div>
+
+      {%- render 'product--item-price', product: product_item -%}
+    </div>
+
+    {%- render 'product--quick-add', product: product_item -%}
+  </div>
+</a>
