@@ -471,7 +471,7 @@
             "show-image": true,
             "image": "shopify:\/\/shop_images\/02..svg",
             "title": "Download Our Guide",
-            "description": "<p>Download our free, home golf simulator design guide for further information and inspiration.<\/p>",
+            "description": "<p>Download our free, home golf simulator design guide for further information and inspiration.<\/p><p><\/p>",
             "link-url": "",
             "link-text": "DOWNLOAD FREE DESIGN GUIDE"
           }
@@ -694,6 +694,17 @@
         "link-url": "",
         "link-text": "DOWNLOAD OUR GUIDE <br><br> OR CALL 1-800-557-5859"
       }
+    },
+    "92125ee7-5bd4-4ad1-9000-ef4e17855ff6": {
+      "type": "custom-content",
+      "settings": {
+        "custom_html": "<a href=\"#\" class=\"fixed bottom-0 right-4 z-[100] bg-[#caeb84] capitalize font-bold text-[#10283e] text-[15px] text-['Montserrat'] px-[25px] py-[9px] cursor-pointer rounded-tr-2xl rounded-tl-2xl transition hover:brightness-90\">\n    Download Our Simulator Guide\n<\/a>",
+        "background-color": "none",
+        "container-width": 4,
+        "light-text": false,
+        "spacing-above": true,
+        "spacing-below": true
+      }
     }
   },
   "order": [
@@ -711,6 +722,7 @@
     "8a8ff8de-5db0-4d93-aac4-6b605be8d071",
     "c3c29299-607c-4556-b624-fd22baae5a8a",
     "9cc3cefc-25c8-4d6b-86ad-76279345351f",
-    "08a29768-a619-4bcb-a9f9-e145a37bd263"
+    "08a29768-a619-4bcb-a9f9-e145a37bd263",
+    "92125ee7-5bd4-4ad1-9000-ef4e17855ff6"
   ]
 }
