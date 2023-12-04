@@ -1,282 +1,516 @@
-<style>
+<script src="https://cdn.tailwindcss.com"></script>
+{% style %}
+	.form-input {
+		border: 0px;
+		border-bottom: 2px solid #10283e;
+		padding: 10px 2px 2px 5px;
+		margin-bottom: 30px;
+	}
 
-.zf_lB_Dimmer_476320{ 
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background: rgb(0, 0, 0);
-    opacity: 0.8;
-    z-index: 10000000;
-}
+	.form-input:focus-visible {
+		border-bottom: 2px solid #10283e;
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		background: transparent;
+	}
 
-.zf_lB_Container_476320{
-	position: fixed;
-	background-color: white;
-	margin: 0;
-	margin-right: 0px;
-	padding: 0;
-	height: 1036px;
-	width:  600px;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	transform: translate(-50%, -50%);
-	border: 7px solid none;
-	max-height: calc(100% - 60px);
-	z-index: 999999;
-}
+	.form-label {
+		font-weight: 600px;
+		font-size: 13px;
+		line-height: 24px;
+		letter-spacing: 0.12em;
+		text-transform: none !important;
+		padding-bottom: 0px;
+		font-family: 'Open Sans', sans-serif;
+	}
 
-p{
-margin-bottom: 10px;
-}
+	.text-open {
+		font-family: 'Open Sans', sans-serif;
+	}
 
-.zf_lB_Wrapper_476320{
-	position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-left: 0;
-    margin-top: -180px;
-    z-index: 10000001;
-}
+	.text-mon {
+		font-family: 'Montserrat', sans-serif;
+	}
 
-.zf_main_id_476320{
-	height: calc(100% - 0px);
-	display: flex;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
+	@media screen and (max-width: 767px) {
+		.form-input {
+			padding-top: 0px;
+			height: 20px;
+		}
+	}
+{% endstyle %}
 
-.zf_lb_closeform_476320 {
-    position: absolute;
-    right: -20px;
-    background: #2f2e2e;
-    padding: 0;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    top: -15px;
-    cursor: pointer;
-    border: 2px solid #d9d9d9;
-}
-.zf_lb_closeform_476320:before, .zf_lb_closeform_476320:after {
-    position: absolute;
-    left: 16px;
-    content: ' ';
-    height: 19px;
-    width: 2px;
-    top: 7px;
-    background-color: #f7f7f7;
-}
+<div x-cloak x-data="modalComponent()" class="modal">
+  <template x-teleport="body">
+	<div class="absolute inset-0 w-full h-full flex items-center justify-center bg-none">
+		<div x-show="showModal" @click.away="closeModal" class="w-auto mx-5 max-h-[90vh] md:mx-[40px] max-w-[1130px] overflow-y-auto modal-content fixed z-[1000] bg-white">
+			<span @click="closeModal" class="close absolute top-0 right-5 text-[40px] cursor-pointer">&times;</span>
+			<div class="flex lg:grid lg:grid-cols-2 p-10">
+			<div class="hidden lg:flex justify-center items-center">
+				<img src="https://cdn.shopify.com/s/files/1/0670/8733/5658/files/custom-guide-2.png?v=1701657878" class="w-[500px] h-full" alt="Simulator Guide">
+			</div>
+			<div class="text-[#10283e]">
+			<form @submit.prevent="submitForm" action='https://forms.zohopublic.com/inhomegolf/form/GolfStudioDesignersGuidePDF/formperma/EBpCQ5MocIDVtgUnSt7BJR8JeiyA7gmq6X6M09UDQ9Q/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+				<input type="hidden" name="zf_referrer_name" value=""><!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
+				<input type="hidden" name="zf_redirect_url" value="https://inhomegolf.com/"><!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field --> 
+				<input type="hidden" name="zc_gad" value=""><!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
+				<h2 class="text-mon font-bold text-[24px] leading-[34px] normal-case">Get Your Free Golf Studio Designers Guide!</h2>
+				<br>
+				<label class="!normal-case text-open text-[16px] mb-5">
+					<div class="hidden md:flex text-open text-[16px]">Whether you&#39;re just starting the design phase or are already under construction, there are simulator basics you should know about, and we can help! Just fill out the quick form and we will email you our free designers guide PDF. 
+					<br>
+					</div>
+				</label>
+				<!--Single Line-->
+				<label class="form-label"> 
+				Full Name 
+				<em>*</em>
+				</label>
+				<input class="form-input" type="text" name="SingleLine1" value="" fieldType=1 maxlength="255" placeholder="" />
+				<!--Email-->
+				<label class="form-label"> Email 
+				<em>*</em>
+				</label>
+				<input class="form-input" type="email" maxlength="255" name="Email" value="" fieldType=9 placeholder="" />
+				<!--Phone-->
+				<label class="form-label"> Phone 
+					<em>*</em>
+				</label>
+				<input class="form-input" type="tel" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" placeholder="" />
+				<!--Single Line-->
+				<label class="form-label"> 
+				Business Name 
+				<em>*</em>
+				</label>
+				<input class="form-input" type="text" name="SingleLine" value="" fieldType=1 maxlength="255" placeholder="" />
+				<!--Terms and Conditions-->
+				<div class="tempContDiv " elemid="tempcontdiv">
+					<div class="termsContainer flex items-center">
+						<input class="checkBoxType flLeft" name="TermsConditions" type="checkbox">
+						<label class="pb-0 !normal-case !text-[12px] !text-open">I agree to the <a class="!underline" target="_blank" rel="noopener noreferrer" href="https://us.inhomegolf.com/privacy-policy/?shop=US">privacy policy</a> and <a class="!underline" target="_blank" rel="noopener noreferrer" href="https://us.inhomegolf.com/terms-and-conditions/?shop=US">terms of use</a>.</label>
+						</div>
+				</div>
+				<button class="mt-6 bg-[#caeb84] text-[15px] font-bold text-[#10283e] text-['Montserrat'] py-3 px-[25px] rounded-full flex justify-center items-center transition hover:brightness-90 leading-[0.2em]" type="submit">
+					Get My Free PDF
+				</button>
+				<div class="bg-white" x-show="showSuccessMessage" class="bg-white flex items-center justify-center">
+					<p class="mt-5 font-bold" x-text="successMessage"></p>
+				</div>
+			</form>
+			</div>
+			<script type="text/javascript">var zf_DateRegex = new RegExp("^(([0][1-9])|([1-2][0-9])|([3][0-1]))[-](Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$");
+			var zf_MandArray = [ "SingleLine1", "Email", "SingleLine", "TermsConditions"]; 
+			var zf_FieldArray = [ "SingleLine1", "Email", "PhoneNumber_countrycode", "SingleLine", "TermsConditions"]; 
+			var isSalesIQIntegrationEnabled = false;
+			var salesIQFieldsArray = [];</script>
+		</div>
+		</div>
+	</div>
+  </template>
+	<div class="fixed bottom-0 right-4 z-[100] bg-[#caeb84] capitalize font-bold text-[#10283e] text-[15px] text-['Montserrat'] px-[25px] py-[9px] cursor-pointer rounded-tr-2xl rounded-tl-2xl transition hover:brightness-90" @click="toggleModal">
+		Download Our Simulator Guide
+	</div>
+</div>
 
-.zf_lb_closeform_476320:before {
-  transform: rotate(45deg);
-}
-.zf_lb_closeform_476320:after {
-  transform: rotate(-45deg);
-} 
+<script>
+    function modalComponent() {
+        return {
+            showModal: false,
+			showSuccessMessage: false,
+            successMessage: '',
+            init() {
+                // Check if the modal has been shown in the session
+                if (sessionStorage.getItem('modalShown') !== 'true') {
+                    this.openModal(); // Show modal if not shown in the session
+                }
+            },
+            toggleModal() {
+                if (this.showModal) {
+                    this.closeModal();
+                } else {
+                    this.openModal();
+                }
+            },
+            openModal() {
+                this.showModal = true;
+                document.body.style.overflow = 'hidden'; // Disable body scroll
+                sessionStorage.setItem('modalShown', 'true');
+            },
+            closeModal() {
+                this.showModal = false;
+                document.body.style.overflow = ''; // Re-enable body scroll
+                sessionStorage.setItem('modalShown', 'true');
+            },
+			submitForm() {
+				if (this.validateForm()) {
+					// Form is valid, show success message
+					this.showSuccessMessage = true;
+					this.successMessage = 'Thank you, we will be in touch shortly!';
 
-
-
-@media screen and (min-device-width: 10px) and (max-device-width: 380px) {  
-   .zf_lB_Container_476320 {
-  width: 270px !important;
-} 
-}
-
-@media screen and (min-device-width: 360px) and (max-device-width: 480px) {  
-   .zf_lB_Container_476320 {
-  width: 300px !important;
-} 
-}
-
-@media screen and (min-device-width: 440px) and (max-device-width: 500px) {  
-   .zf_lB_Container_476320 {
-  width: 380px !important;
-} 
-}
-
-@media only screen  and (min-width:500px) and (max-width:600px)  {  
- 	.zf_lB_Container_476320 {
-	width: 450px;
- }
-}
-
-@media only screen  and (min-width:601px) and (max-width:700px)  {  
- 	.zf_lB_Container_476320 {
-	width: 540px;
- }
-}
-
-@media only screen  and (min-width:700px) and (max-width:800px)  { 
-.zf_lB_Container_476320 {
-	width: 650px;
- }
-}
-
-@media screen and (min-device-width: 801px) and (max-device-width: 1268px) {  
-   .zf_lB_Container_476320 {
-  width: 750px !important;
-} 
-}
-
-</style>      
-
-
-<button id="zf_button_476320" style="display: none;">Form</button>
-
-
-
-<script type="text/javascript">(function() {
-	try{
-
-			if( document.readyState == "complete" ){ 
-				onloadActions_476320();
-			}  else {
-			  	window.addEventListener('load', function (){
-			  		onloadActions_476320();
-			  	}, false);
-			}
-
-			function onloadActions_476320(){
-				constructDiv_476320();
-				showZForm_476320();
-			}
-
-			function constructDiv_476320(){
-				var iframeDiv = document.createElement("div");
-				iframeDiv.setAttribute('id','K4tXxZWAkYr5g0txWTn9YDsDNLqGv7ENEiGy6Iy787U_476320');
-				iframeDiv.setAttribute('class','zf_main_id_476320');
-
-				var closeFormDiv = document.createElement("div");
-				closeFormDiv.setAttribute('id','deleteform_476320');
-				closeFormDiv.setAttribute('class','zf_lb_closeform_476320');
-				
-
-				var containerDiv = document.createElement("div");
-				containerDiv.setAttribute('id','containerDiv_476320');
-				containerDiv.setAttribute('class','zf_lB_Container_476320 ');
-				containerDiv.appendChild(iframeDiv);
-				containerDiv.appendChild(closeFormDiv);
-				
-				var wrapperDiv = document.createElement("div");
-				wrapperDiv.setAttribute('class','zf_lB_Wrapper_476320');
-				wrapperDiv.appendChild(containerDiv);
-
-
-				var dimmerDiv = document.createElement("div");
-				dimmerDiv.setAttribute('class','zf_lB_Dimmer_476320');
-				dimmerDiv.setAttribute('elname','popup_box');
-
-				var mainDiv = document.createElement("div");
-				mainDiv.setAttribute('id','formsLightBox_476320');
-				mainDiv.style.display = "none";
-				mainDiv.appendChild(wrapperDiv);
-				mainDiv.appendChild(dimmerDiv);
-
-				document.body.appendChild(mainDiv);
-
-			}
-
-			function showZForm_476320(){
-				var iframe = document.getElementById("K4tXxZWAkYr5g0txWTn9YDsDNLqGv7ENEiGy6Iy787U_476320").getElementsByTagName("iframe")[0];
-				if(iframe == undefined ||iframe.length == 0){
-					loadZForm_476320();
-					
-				} 
-				document.getElementById("formsLightBox_476320").style.display = "block"; 
-				document.body.style.overflow = "hidden";
-			}
-
-			function loadZForm_476320() {
-				var iframe = document.getElementById("K4tXxZWAkYr5g0txWTn9YDsDNLqGv7ENEiGy6Iy787U_476320").getElementsByTagName("iframe")[0];
-				if(iframe == undefined ||iframe.length == 0){
-					var f = document.createElement("iframe");
-					f.src = getsrcurlZForm_476320('https://forms.zohopublic.com/inhomegolf/form/GolfStudioDesignersGuidePDF/formperma/K4tXxZWAkYr5g0txWTn9YDsDNLqGv7ENEiGy6Iy787U');
-				    
-					f.style.border="none";
-					f.style.minWidth="100%";
-					f.style.overflow="hidden";
-					var d = document.getElementById("K4tXxZWAkYr5g0txWTn9YDsDNLqGv7ENEiGy6Iy787U_476320");
-					d.appendChild(f);
-
-					var deleteForm = document.getElementById("deleteform_476320");
-					deleteForm.onclick = function deleteZForm_476320() {
-						var divCont = document.getElementById("formsLightBox_476320");
-						divCont.style.display="none";
-						document.body.style.overflow = "";
-
-						var iframe = document.getElementById("K4tXxZWAkYr5g0txWTn9YDsDNLqGv7ENEiGy6Iy787U_476320").getElementsByTagName("iframe")[0];
-						iframe.remove();
-					}
-
-					
-
-					window.addEventListener('message', function (){
-						var evntData = event.data;
-						if( evntData && evntData.constructor == String ){
-							var zf_ifrm_data = evntData.split("|");
-							if ( zf_ifrm_data.length == 2 ) {
-								var zf_perma = zf_ifrm_data[0];
-								var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
-								var iframe = document.getElementById("K4tXxZWAkYr5g0txWTn9YDsDNLqGv7ENEiGy6Iy787U_476320").getElementsByTagName("iframe")[0];
-								if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
-									var prevIframeHeight = iframe.style.height;
-									if ( prevIframeHeight != zf_ifrm_ht_nw ) {
-									iframe.style.minHeight = zf_ifrm_ht_nw;
-										var containerDiv = document.getElementById("containerDiv_476320");
-										containerDiv.style.height=zf_ifrm_ht_nw;
-									}
-								}
-							}
-						}
-
-					}, false);
+					// Submit the form programmatically
+					setTimeout(() => {
+						document.getElementById('form').submit();
+					}, 2000); // Adjust delay as needed
+				} else {
+					// Show error message if validation fails
+					this.showSuccessMessage = true;
+					this.successMessage = 'Please fill out all required fields.';
 				}
+			},
+
+
+            validateForm() {
+                // Call the existing form validation logic
+                // This assumes zf_ValidateAndSubmit() returns true if the form is valid
+                return zf_ValidateAndSubmit();
+            }
+        }
+    }
+</script>
+
+
+<script>
+   
+    // $Id: $
+function zf_ValidateAndSubmit(){
+		if(zf_CheckMandatory()){
+			if(zf_ValidCheck()){
+				if(isSalesIQIntegrationEnabled){
+					zf_addDataToSalesIQ();
+				}
+				return true;
+			}else{		
+				return false;
 			}
-
-			
-
-			function getsrcurlZForm_476320(zf_src) {
-				try {
-					
-					if ( typeof ZFAdvLead !== "undefined" && typeof zfutm_zfAdvLead !== "undefined" ) {
-						for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
-				        	var utmPm = ZFAdvLead.utmPNameArr[ prmIdx ];
-				        	var utmVal = zfutm_zfAdvLead.zfautm_gC_enc( ZFAdvLead.utmPNameArr[ prmIdx ] );
-					        if ( typeof utmVal !== "undefined" ) {
-					          if ( utmVal != "" ){
-					            if(zf_src.indexOf('?') > 0){
-					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
-					            }else{
-					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
-					            }
-					          }
-					        }
-				      	}
+		}else{
+			return false;
+		}
+	}
+		function zf_CheckMandatory(){
+		for(i = 0 ; i < zf_MandArray.length ; i ++) {
+		  	var fieldObj=document.forms.form[zf_MandArray[i]];
+		  	if(fieldObj) {  
+				  	if(fieldObj.nodeName != null ){
+				  		if ( fieldObj.nodeName=='OBJECT' ) {
+								if(!zf_MandatoryCheckSignature(fieldObj)){
+									zf_ShowErrorMsg(zf_MandArray[i]);
+								 	return false;
+								}
+							}else if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+							 if(fieldObj.type =='file')
+								{ 
+								 fieldObj.focus(); 
+								 zf_ShowErrorMsg(zf_MandArray[i]);
+								 return false;
+								} 
+				   	   	  	  fieldObj.focus();
+				   	   	  	  zf_ShowErrorMsg(zf_MandArray[i]);
+				   	   	  	  return false;
+							}  else if( fieldObj.nodeName=='SELECT' ) {// No I18N
+				  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-Select-') {
+								fieldObj.focus();
+								zf_ShowErrorMsg(zf_MandArray[i]);
+								return false;
+							   }
+							} else if( fieldObj.type =='checkbox' || fieldObj.type =='radio' ){
+								if(fieldObj.checked == false){
+									fieldObj.focus();
+									zf_ShowErrorMsg(zf_MandArray[i]);
+									return false;
+			   					} 
+							} 
+				  	}else{
+				  		var checkedValsCount = 0;
+						var inpChoiceElems = fieldObj;
+							for(var ii = 0; ii < inpChoiceElems.length ; ii ++ ){
+						      	if(inpChoiceElems[ii].checked === true ){
+						      		checkedValsCount ++;
+						      	}
+							}
+							if ( checkedValsCount == 0) {
+									inpChoiceElems[0].focus();
+									zf_ShowErrorMsg(zf_MandArray[i]);
+									return false;
+							 	}
 					}
-
-					if ( typeof ZFLead !== "undefined" && typeof zfutm_zfLead !== "undefined" ) {
-						for( var prmIdx = 0 ; prmIdx < ZFLead.utmPNameArr.length ; prmIdx ++ ) {
-				        	var utmPm = ZFLead.utmPNameArr[ prmIdx ];
-				        	var utmVal = zfutm_zfLead.zfutm_gC_enc( ZFLead.utmPNameArr[ prmIdx ] );
-					        if ( typeof utmVal !== "undefined" ) {
-					          if ( utmVal != "" ){
-					            if(zf_src.indexOf('?') > 0){
-					              zf_src = zf_src+'&'+utmPm+'='+utmVal;//No I18N
-					            }else{
-					              zf_src = zf_src+'?'+utmPm+'='+utmVal;//No I18N
-					            }
-					          }
-					        }
-				      	}
-					}
-				}catch(e){}
-				return zf_src;
 			}
-			
-			
-	}catch(e){}
-})();
-</script>		
+		}
+		return true;
+	}
+	function zf_ValidCheck(){
+		var isValid = true;
+		for(ind = 0 ; ind < zf_FieldArray.length ; ind++ ) {
+			var fieldObj=document.forms.form[zf_FieldArray[ind]];
+		  	if(fieldObj) {
+		  		if(fieldObj.nodeName != null ){
+			  		var checkType = fieldObj.getAttribute("checktype"); 
+			  		if( checkType == "c2" ){// No I18N
+			  			if( !zf_ValidateNumber(fieldObj)){
+							isValid = false;
+							fieldObj.focus();
+							zf_ShowErrorMsg(zf_FieldArray[ind]);
+							return false;
+						}
+			  		}else if( checkType == "c3" ){// No I18N
+			  			if (!zf_ValidateCurrency(fieldObj) || !zf_ValidateDecimalLength(fieldObj,10) ) {
+							isValid = false;
+							fieldObj.focus();
+							zf_ShowErrorMsg(zf_FieldArray[ind]);
+							return false;
+						}
+			  		}else if( checkType == "c4" ){// No I18N
+			  			if( !zf_ValidateDateFormat(fieldObj)){
+							isValid = false;
+							fieldObj.focus();
+							zf_ShowErrorMsg(zf_FieldArray[ind]);
+							return false;
+						}
+			  		}else if( checkType == "c5" ){// No I18N
+			  			if (!zf_ValidateEmailID(fieldObj)) {
+							isValid = false;
+							fieldObj.focus();
+							zf_ShowErrorMsg(zf_FieldArray[ind]);
+							return false;
+						}
+			  		}else if( checkType == "c6" ){// No I18N
+			  			if (!zf_ValidateLiveUrl(fieldObj)) {
+							isValid = false;
+							fieldObj.focus();
+							zf_ShowErrorMsg(zf_FieldArray[ind]);
+							return false;
+							}
+			  		}else if( checkType == "c7" ){// No I18N
+			  			if (!zf_ValidatePhone(fieldObj)) {
+							isValid = false;
+							fieldObj.focus();
+							zf_ShowErrorMsg(zf_FieldArray[ind]);
+							return false;
+							}
+			  		}else if( checkType == "c8" ){// No I18N
+			  			zf_ValidateSignature(fieldObj);
+			  		}
+			  	}
+		  	}
+		}
+         	return isValid;
+	}
+	function zf_ShowErrorMsg(uniqName) {
+    var linkName = uniqName.split('_')[0];
+    var errorElement = document.getElementById(linkName + "_error");
+
+    // Clear existing error messages
+    zf_FieldArray.forEach(field => {
+        var fieldLinkName = field.split('_')[0];
+        var fieldErrorElement = document.getElementById(fieldLinkName + "_error");
+        if (fieldErrorElement) {
+            fieldErrorElement.style.display = 'none';
+        }
+    });
+
+    // Show the relevant error message
+    if (errorElement) {
+        errorElement.style.display = 'block';
+    } else {
+        console.error("Error element not found for:", linkName);
+    }
+}
+
+	function zf_ValidateNumber(elem) {
+	 	var validChars = "-0123456789";
+	 	var numValue = elem.value.replace(/^\s+|\s+$/g, '');
+	 	if (numValue != null && !numValue == "") {
+	 		var strChar;
+	 		var result = true;
+	 		if (numValue.charAt(0) == "-" && numValue.length == 1) {
+	 			return false;
+	 		}
+	 		for (i = 0; i < numValue.length && result == true; i++) {
+	 			strChar = numValue.charAt(i);
+	 			if ((strChar == "-") && (i != 0)) {
+	 				return false;
+	 			}
+	 			if (validChars.indexOf(strChar) == -1) {
+	 				result = false;
+	 			}
+	 		}
+	 		return result;
+	 	} else {
+	 		return true;
+	 	}
+	 }
+	 function zf_ValidateDateFormat(inpElem){
+	 	var dateValue = inpElem.value.replace(/^\s+|\s+$/g, '');
+	 	if( dateValue == "" ){
+	 		return true;
+	 	}else{
+			return( zf_DateRegex.test(dateValue) );
+		}
+	 }
+	 function zf_ValidateCurrency(elem) {
+	 	var validChars = "0123456789."; 
+	 	var numValue = elem.value.replace(/^\s+|\s+$/g, '');
+	 	if(numValue.charAt(0) == '-'){
+	 		numValue = numValue.substring(1,numValue.length);
+	 	}
+	 	if (numValue != null && !numValue == "") {
+	 		var strChar;
+	 		var result = true;
+	 		for (i = 0; i < numValue.length && result == true; i++) {
+	 			strChar = numValue.charAt(i);
+	 			if (validChars.indexOf(strChar) == -1) {
+	 				result = false;
+	 			}
+	 		}
+	 		return result;
+	 	} else {
+	 		return true;
+	 	}
+	 }
+	 function zf_ValidateDecimalLength(elem,decimalLen) {
+	 	var numValue = elem.value;
+	 	if (numValue.indexOf('.') >= 0) {
+	 		var decimalLength = numValue.substring(numValue.indexOf('.') + 1).length;
+	 		if (decimalLength > decimalLen) {
+	 			return false;
+	 		} else {
+	 			return true;
+	 		}
+	 	}
+	 	return true;
+	 }
+	 function zf_ValidateEmailID(elem) {
+        var check = 0;
+        var emailValue = elem.value;
+        if (emailValue != null && !emailValue == "") {
+            var emailArray = emailValue.split(",");
+            for (i = 0; i < emailArray.length; i++) {
+                var emailExp = /^[\w]([\w\-.+&'/]*)@([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,22}$/;
+                if (!emailExp.test(emailArray[i].replace(/^\s+|\s+$/g, ''))) {
+                    check = 1;
+                }
+            }
+            if (check == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+    function zf_ValidateLiveUrl(elem) {
+    	var urlValue = elem.value;
+		if(urlValue !== null && typeof(urlValue) !== "undefined") {
+			urlValue = urlValue.replace(/^\s+|\s+$/g, '');
+			if(urlValue !== "") {
+      			var urlregex = new RegExp("^((((h|H)(t|T)|(f|F))(t|T)(p|P)((s|S)?)://[-.\\w]*)|(((w|W){3}\\.)[-.\\w]+)|((\\w+)([-\\w]*)(\\.([-\\w]+))+))(/?)([-\\w.?,:'/\\\\+=&;%$#@()!~]*)?$"); // Same regex as website_field_url in security-regex.xml. But single backslash is replaced with two backslashes.
+				return(urlregex.test(urlValue));
+			}
+        }
+        return true;
+    }
+    function zf_ValidatePhone(inpElem){
+        
+        var ZFPhoneRegex = {
+            PHONE_INTE_ALL_REG: /^[+]{0,1}[()0-9-. ]+$/,
+            PHONE_INTE_NUMERIC_REG: /^[0-9]+$/,
+            PHONE_INTE_CONT_CODE_ENABLED_REG: /^[(0-9-.][()0-9-. ]*$/,
+            PHONE_USA_REG: /^[0-9]+$/,
+            PHONE_CONT_CODE_REG: /^[+][0-9]{1,4}$/
+        }
+    	var phoneFormat = parseInt(inpElem.getAttribute("phoneFormat")); 
+    	var fieldInpVal = inpElem.value.replace(/^\s+|\s+$/g, '');
+    	var toReturn = true ;
+    	if( phoneFormat === 1 ){
+    		if(inpElem.getAttribute("valType") == 'code'){
+                var codeRexp = ZFPhoneRegex.PHONE_CONT_CODE_REG;
+                if(fieldInpVal != "" && !codeRexp.test(fieldInpVal)){
+		           return false;
+				}
+    		}else{
+				var IRexp = ZFPhoneRegex.PHONE_INTE_ALL_REG;
+				if(inpElem.getAttribute("phoneFormatType") == '2'){
+					IRexp = ZFPhoneRegex.PHONE_INTE_NUMERIC_REG;
+				}
+	 			if (fieldInpVal != "" && !IRexp.test(fieldInpVal)) {
+	 				toReturn = false;
+	 				return toReturn;
+	 			}
+ 		    }
+ 			return toReturn;
+    	}else if( phoneFormat === 2 ){
+    		var InpMaxlength = inpElem.getAttribute("maxlength");
+    		var USARexp = ZFPhoneRegex.PHONE_USA_REG;
+    		if  ( fieldInpVal != "" && USARexp.test(fieldInpVal) &&  fieldInpVal.length == InpMaxlength ) {
+				toReturn = true;
+			}else if( fieldInpVal == "" ){
+				toReturn = true;
+			}else{
+				toReturn = false;
+			}
+			return toReturn;
+    	}
+    }
+  
+  function zf_ValidateSignature(objElem) {
+  		var linkName = objElem.getAttribute("compname");
+  		var canvasElem = document.getElementById("drawingCanvas-"+linkName);
+  		var isValidSign = zf_IsSignaturePresent(objElem,linkName,canvasElem);
+   		var hiddenSignInputElem = document.getElementById("hiddenSignInput-"+linkName);
+		if(isValidSign){
+			hiddenSignInputElem.value = canvasElem.toDataURL();
+		}else{
+			hiddenSignInputElem.value = "";// No I18N
+		}
+		return isValidSign;
+  	}
+
+  	function zf_MandatoryCheckSignature(objElem){
+  		var linkName = objElem.getAttribute("compname");
+  		var canvasElem = document.getElementById("drawingCanvas-"+linkName);
+  		var isValid = zf_IsSignaturePresent(objElem,linkName,canvasElem);
+		return isValid;
+  	}
+
+  	function zf_IsSignaturePresent(objElem,linkName,canvasElem){
+   		var context = canvasElem.getContext('2d'); // No I18N
+   		var canvasWidth = canvasElem.width;
+   		var canvasHeight = canvasElem.height;
+   		var canvasData = context.getImageData(0, 0, canvasWidth, canvasHeight);
+   		var signLen = canvasData.data.length;
+   		var flag = false;
+   		for(var index =0; index< signLen; index++) {
+   	     	if(!canvasData.data[index]) {
+   	       		flag =  false;
+   	     	}else if(canvasData.data[index]) {
+   		   		flag = true;
+   		   		break;
+   	     	}
+   		}
+		return flag;
+  	}
+
+	function zf_FocusNext(elem,event) {  
+	 	if(event.keyCode == 9 || event.keyCode == 16){
+	      return;
+	    }
+	    if(event.keyCode >=37 && event.keyCode <=40){
+	       return;
+	    } 	
+	    var compname = elem.getAttribute("compname");
+	    var inpElemName = elem.getAttribute("name");
+	 	if (inpElemName == compname+"_countrycode") { 
+	 		if (elem.value.length == 3) {
+	 			document.getElementsByName(compname+"_first")[0].focus();
+	 		}
+	 	} else if (inpElemName == compname+"_first" ) { 
+	 		if (elem.value.length == 3) {
+	 			document.getElementsByName(compname+"_second")[0].focus();
+	 		}
+	 	}
+	}
+</script>
+
+
+
